@@ -18,11 +18,11 @@ export default function Header()
 
     return (
         <>
-            <div className="black-overlay w-full h-full fixed duration-500" onClick={hideMenu} style={{
+            <div className="black-overlay w-full h-full fixed duration-500 z-index-50" onClick={hideMenu} style={{
                 opacity : toggle ? 1 : 0,
                 visibility : toggle ? "visible" : "hidden"
             }}>
-                <div className="bg-white w-[500px] duration-[500ms] h-full absolute z-[9999999]"  style={{
+                <div className="bg-white w-[500px] duration-[500ms] h-full absolute "  style={{
                     left : toggle ? '0%' : '-100%'
                 }}
                 onClick={(e) => {

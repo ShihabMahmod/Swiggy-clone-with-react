@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from "react";
 import { FaArrowRight } from "react-icons/fa";
 import { FaArrowLeft } from "react-icons/fa";
+import Card from "./Card";
 
-export default function Category()
+export default function TopRestaurant()
 {
     const[slide,setSlide] = useState(0);
-    const[category,setCategory] = useState([]);
+    const[restaurants,setrestaurant] = useState([]);
 
-    const fetchCategory = async() =>{
-        const response = await fetch("http://localhost:5000/categories");
+    const fetchRestaurant = async() =>{
+        const response = await fetch("http://localhost:5000/restaurents");
         const data = await response.json();
-        setCategory(data);
+        setrestaurant(data);
     }
     useEffect(()=>{
-        fetchCategory();
+        fetchRestaurant();
     },[]);
     
     const nextSlide = () =>{
-        if(category.length - 8 == slide) return false
+        if(restaurants.length - 8 == slide) return false
         setSlide(slide+3);
     }
     const previousSlide = () => {
@@ -27,8 +28,8 @@ export default function Category()
     return (
         <>
             <div className="max-w-[1200px] mx-auto">
-                <div className="flex justify-between items-end py-3">
-                    <div className="text-[25] font-bold">What's on your mind?</div>
+                <div className="flex justify-between items-end my-4">
+                    <div className="text-[25] font-bold">Top restaurant chainis in Dhaka</div>
                     <div className="flex gap-2">
                         <div onClick={nextSlide} className="flex items-center justify-center bg-[#e2e2e7] w-[30px] h-[30px] rounded-full">
                             <FaArrowRight />
@@ -38,22 +39,13 @@ export default function Category()
                         </div>
                     </div>
                 </div>
-                <div className="flex overflow-hidden ">
+                <div className="flex">
                     {
-                        category.map((item,index)=>{
-                            return (
-                                <div 
-                                style={{
-                                    transform : `translateX(-${slide * 100}%)`
-                                }}
-                                 className="w-[150px] shrink-0 duration-500">
-                                    <img src={"http://localhost:5000/images/"+item.image} alt="" />
-                                </div>
-                            )
+                        restaurants.map((item,index)=>{
+                           return  <Card {...item} key={index} />
                         })
                     }
                 </div>
-                <hr className="my-8 border-[1px]" />
             </div>
         </>
     )
