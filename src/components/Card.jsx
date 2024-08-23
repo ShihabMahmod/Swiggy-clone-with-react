@@ -9,9 +9,9 @@ export default function Card(prop)
 
     return (
         
-        <div className="w-[273px] shrink-0">
-            <div className="h-[181px] rounded-[15px] overflow-hidden relative ">
-                    <img className="obejct-cover w-full h-full" src={"http://localhost:5000/images/"+ prop.image} alt="" />
+        <div className="w-[273px] shrink-0 mb-8">
+            <div className="group h-[181px] rounded-[15px] overflow-hidden relative ">
+                    <img className=" group-hover:scale-125  duration-300 obejct-cover w-full h-full" src={"http://localhost:5000/images/"+ prop.image} alt="" />
                     <div className="image-overlay absolute w-full h-full top-0 flex items-end p-3 text-[20px] font-bold text-white ">
                     {prop.offer}
                     </div>
