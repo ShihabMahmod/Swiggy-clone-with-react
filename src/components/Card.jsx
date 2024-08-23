@@ -8,7 +8,7 @@ export default function Card(prop)
 
     return (
         
-        <div className="w-[273px]">
+        <div className="w-[273px] shrink-0">
             <div className="h-[181px] rounded-[15px] overflow-hidden relative ">
                     <img className="obejct-cover w-full h-full" src={"http://localhost:5000/images/2b4f62d606d1b2bfba9ba9e5386fabb7.jpeg"} alt="" />
                     <div className="image-overlay absolute w-full h-full top-0 flex items-end p-3 text-[20px] font-bold text-white ">

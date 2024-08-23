@@ -39,7 +39,7 @@ export default function TopRestaurant()
                         </div>
                     </div>
                 </div>
-                <div className="flex">
+                <div className="flex gap-4 overflow-hidden ">
                     {
                         restaurants.map((item,index)=>{
                            return  <Card {...item} key={index} />
